@@ -1,0 +1,47 @@
+
+<html>
+<head>
+<%= stylesheet_link_tag "application" %>
+</head>
+<body>
+<h1>Customers#index</h1>
+
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<% @customers.each do |c| %>
+<tr>
+    <td><%= c.name %></td>
+    <td><%= c.age %></td>
+
+    <td><%= c.gender %></td>
+    <td><%= link_to "Edit", edit_customer_path(c) %></td>
+    <td><%= link_to "Destroy", customer_path(c), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %></td>
+
+    
+</tr>
+<%end%>
+</tbody>
+</table>
+<div class="link">
+<%= link_to "New Customer", new_customer_path %>
+</div>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,35 @@
+<%= form_with model: @customer do |form| %>
+    <div>
+      <%= form.label :name  %>
+      <%= form.text_field :name %>
+      <% @customer.errors.full_messages_for(:name ).each do |message| %>
+        <div class="error"><%= message %></div>
+      <% end %>
+      
+    </div>
+  
+    <p>
+      <%= form.label :age %>
+      <%= form.text_field:age %>
+      <% @customer.errors.full_messages_for(:age ).each do |message| %>
+        <div class="error"><%= message %></div>
+      <% end %>
+    </p>
+    
+    <div class=radio>
+    
+        <%= form.label :gender %>
+        <%= form.radio_button :gender, 'male' %>
+        <%= form.label :gender, value: 'male' %>
+        <%= form.radio_button :gender, 'female' %>
+        <%= form.label :gender, value: 'female' %>
+        <% @customer.errors.full_messages_for(:gender ).each do |message| %>
+          <div class="error"><%= message %></div>
+        <% end %>
+    </div>
+   
+    <p>
+      <%= form.submit 'submit' %>
+    </p>
+    
+<% end %>
